@@ -1,6 +1,6 @@
+Modified from [Blemasle's library](https://github.com/blemasle/arduino-sim808) to add new functions like USSD codes and more precise GPS fields. I'll also try to find the time to write a nice documentation. I strongly recommend that you use the original library unless you know what you're doing.
+
 # SIM808
-[![Build Status](https://travis-ci.org/blemasle/arduino-sim808.svg?branch=master)](https://travis-ci.org/blemasle/arduino-sim808)
-[![License](https://img.shields.io/badge/license-MIT%20License-blue.svg)](http://doge.mit-license.org)
 
 This library allows to access some of the features of the [SIM808](https://simcom.ee/documents/?dir=SIM808) GPS & GPRS module. It requires only the `RESET` pin to work and a TTL Serial. `STATUS` pin can be wired to enhance the module power status detection, while wiring the `PWRKEY` adds the ability to turn the module on & off.
 
@@ -17,13 +17,6 @@ really easy, and avoid successive prints or string concatenation on complex comm
  * Sending GET and POST [HTTP(s)](#a-note-about-https) requests
  * Acquiring GPS positions, with access to individual fields
  * Reading of the device states (battery, gps, network)
-
-## Why another library ?
-Their is a number of libraries out there which support this modem ([Adafruit's FONA](https://github.com/adafruit/Adafruit_FONA), [TinyGSM](https://github.com/vshymanskyy/TinyGSM) for instance), so why build another one ? None fit the needs I had for a project. FONA is more a giant example for testing commands individually and I was getting unreliable results with it. TinyGSM seems great but what it gains in chips support it lacks in fine grained control over each modules, which I needed.
-
-This library is then greatly inspired by FONA, which served as the reference implementation, but mostly only support the features I needed for my project and has been tested thoroughly and successfully in that configuration. It also tries to reduce the final HEX size as this was a real problem for the project it was built for.
-
-It does *not* have the pretention to become the new SIM808 standard library, but can be useful to others as a source of inspiration or documentation to understand how AT commands works.
 
 ## Debugging
  If you need to debug the communication with the SIM808 module, you can either define `_DEBUG` to `1`, or directly change `_SIM808_DEBUG` to `1` in [SIMComAT.h](/src/SIMComAT.h).
